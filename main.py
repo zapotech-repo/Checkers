@@ -17,8 +17,10 @@ board = asarray(
 )
 
 
-cp = ["#b1e4b9","#70a2a3"]
-ac = ["#bfe3c4","#7aa3a3"]
+cp = ["#b1e4b9", "#70a2a3"]
+ac = ["#bfe3c4", "#7aa3a3"]
+
+
 class Game:
     can: Canvas
 
@@ -28,10 +30,18 @@ class Game:
 
     def draw_ui(self):
         self.can = Canvas(self.root, highlightthickness=0)
-        self.can.place(x=0,y=0,width=512,height=512)
+        self.can.place(x=0, y=0, width=512, height=512)
         for x in range(8):
             for y in range(8):
-                self.can.create_rectangle(64*x,64*y,64*x+64,64*y+64,fill=cp[(x+y)%2],activefill = ac[(x+y)%2],outline="black")
+                self.can.create_rectangle(
+                    64 * x,
+                    64 * y,
+                    64 * x + 64,
+                    64 * y + 64,
+                    fill=cp[(x + y) % 2],
+                    activefill=ac[(x + y) % 2],
+                    outline="black",
+                )
         self.root.geometry("512x512")
 
     def run(self):
