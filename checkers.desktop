@@ -13,4 +13,3 @@ Keywords=checkers;game;
 Exec=checkers
 StartupNotify=false
 Terminal=false
-X-Desktop-File-Install-Version=0.01

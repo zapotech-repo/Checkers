@@ -27,8 +27,10 @@ class Game:
     def __init__(self):
         self.root = Tk()
         self.draw_ui()
+        self.load_icon()
 
     def draw_ui(self):
+        self.root.title("Checkers")
         self.can = Canvas(self.root, highlightthickness=0)
         self.can.place(x=0, y=0, width=512, height=512)
         for x in range(8):
@@ -43,6 +45,13 @@ class Game:
                     outline="black",
                 )
         self.root.geometry("512x512")
+    
+    def load_icon(self):
+        try:
+            photo = PhotoImage(file = '/usr/share/pixmaps/checkers.png')
+            self.root.wm_iconphoto(False, photo)
+        except:
+            print("Unable To Load Icon...")
 
     def run(self):
         self.root.mainloop()
