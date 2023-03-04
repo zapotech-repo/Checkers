@@ -50,7 +50,7 @@ class Game:
                     activefill=ac[(x + y) % 2],
                     outline="black",
                     activeoutline="green",
-                    activewidth=2
+                    activewidth=2,
                 )
         self.root.geometry("512x512")
 
@@ -62,13 +62,19 @@ class Game:
             for y in range(8):
                 if self.board[x, y]:
                     self.pids[(x, y)] = self.can.create_oval(
-                        *self.xy2sc(x+1/16,y+1/16), *self.xy2sc(x+15/16,y+15/16), fill = "red" if self.board[x, y]<0 else "black", outline = "yellow" if abs(self.board[x, y])==2 else "black", width=5
+                        *self.xy2sc(x + 1 / 16, y + 1 / 16),
+                        *self.xy2sc(x + 15 / 16, y + 15 / 16),
+                        fill="red" if self.board[x, y] < 0 else "black",
+                        outline="yellow" if abs(self.board[x, y]) == 2 else "black",
+                        width=5
                     )
-    def xy2sc(self,x,y):
+
+    def xy2sc(self, x, y):
         if self.turn:
-            x=8-x
-            y=8-y
-        return 64 * y,64 * x
+            x = 8 - x
+            y = 8 - y
+        return 64 * y, 64 * x
+
     def load_icon(self):
         try:
             photo = PhotoImage(file="/usr/share/pixmaps/checkers.png")
