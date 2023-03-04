@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=Checkers
+
+Comment=Writen By Kai
+
+Icon=checkers
+
+Type=Application
+Categories=Game;
+
+Keywords=checkers;game;
+
+Exec=checkers
+StartupNotify=false
+Terminal=false
+X-Desktop-File-Install-Version=0.01
