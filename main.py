@@ -23,6 +23,7 @@ ac = ["#bfe3c4", "#7aa3a3"]
 
 class Game:
     can: Canvas
+    pids: dict[tuple[int, int], int]
 
     def __init__(self):
         self.root = Tk()
@@ -45,10 +46,15 @@ class Game:
                     outline="black",
                 )
         self.root.geometry("512x512")
-    
+
+    def draw_pieces(self):
+        for i in self.pids.values():
+            self.can.delete(i)
+        self.pids = {}
+
     def load_icon(self):
         try:
-            photo = PhotoImage(file = '/usr/share/pixmaps/checkers.png')
+            photo = PhotoImage(file="/usr/share/pixmaps/checkers.png")
             self.root.wm_iconphoto(False, photo)
         except:
             print("Unable To Load Icon...")
