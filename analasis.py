@@ -18,7 +18,7 @@ def good(bd, x, y):
 def can_cap(bd, p, x, y, vx, vy):
     if not (0 <= x < 8) or not (0 <= y < 8):
         return False
-    if bd[x, y] in [0, abs(p)]:
+    if bd[x, y] in [0, p, -p]:
         return False
     return good(bd, x + vx, y + vy)
 
