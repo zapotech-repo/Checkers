@@ -1,6 +1,18 @@
 from numpy import copy
 
 
+def lock(b):
+    return tuple(tuple(x) for x in b)
+
+def score(b, t):
+    sc = 0
+    for x in b:
+        for y in x:
+            if y == 0:
+                continue
+            sc += y / abs(y) * [1,5][abs(y)-1]
+    return (2*t-1) * sc
+
 def get_moves(p):
     if p == 1:
         return [(1, -1), (1, 1)]

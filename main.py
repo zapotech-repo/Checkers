@@ -2,6 +2,7 @@ from __future__ import annotations
 from numpy import asarray, ndarray
 from tkinter import *
 from analasis import *
+import ai
 
 
 cp = ["#b1e4b9", "#70a2a3"]
@@ -34,6 +35,7 @@ class Game:
                 [-1, 0, -1, 0, -1, 0, -1, 0],
             ]
         )
+        ai.init(self.board)
         self.draw_pieces()
 
     def draw_ui(self):
@@ -66,7 +68,7 @@ class Game:
                         *self.xy2sc(x + 1 / 16, y + 1 / 16),
                         *self.xy2sc(x + 15 / 16, y + 15 / 16),
                         fill="red" if self.board[x, y] < 0 else "black",
-                        outline="yellow" if abs(self.board[x, y]) == 2 else "black",
+                        outline="yellow" if abs(self.board[x, y]) == 2 else ("black" if self.board[x, y] < 0 else "#808080"),
                         width=5
                     )
 
