@@ -1,3 +1,4 @@
+from __future__ import annotations
 from numpy import asarray, ndarray
 from tkinter import *
 from analasis import *
